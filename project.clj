@@ -16,7 +16,7 @@
 
   :cljsbuild { 
     :builds [{:id "rtc-chat"
-              :source-paths ["src" "test"]
+              :source-paths ["src-cljs" "test-cljs"]
               :compiler {
                 :output-to "rtc_chat.js"
                 :output-dir "out"
