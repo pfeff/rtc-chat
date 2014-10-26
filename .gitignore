@@ -11,3 +11,4 @@ pom.xml
 .nrepl-port
 .repl
 rtc_chat.js
+*.map
