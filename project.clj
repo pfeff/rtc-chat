@@ -13,6 +13,7 @@
             [com.cemerick/clojurescript.test "0.2.3"] ]
 
   :source-paths ["src"]
+  :test-paths ["test" "test-cljs" "test-e2e"]
 
   :cljsbuild { 
     :builds [{:id "rtc-chat"
