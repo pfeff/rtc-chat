@@ -28,7 +28,7 @@
                                   "rtc_chat.js"
                                   ]}
     }
-  :profiles {:dev {:dependencies [[clj-webdriver "0.6.0"]
+  :profiles {:dev {:dependencies [[clj-webdriver "0.6.1"]
                                   [com.cemerick/clojurescript.test "0.3.1"]
                                   ]}}
   )

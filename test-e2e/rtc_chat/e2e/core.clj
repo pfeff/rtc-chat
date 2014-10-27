@@ -14,7 +14,7 @@
 
 (defn start-browser-fixture
   [f]
-  (t/set-driver! {:browser :firefox} (base-url))
+  (t/set-driver! {:browser :phantomjs} (base-url))
   (f))
 
 (defn reset-browser-fixture
