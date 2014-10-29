@@ -1,6 +1,7 @@
 (ns rtc-chat.e2e.core
   (:require [clojure.test :refer :all]
             [clj-webdriver.taxi :as t]
+            [rtc-chat.server :as server]
             )
   )
 
@@ -9,6 +10,7 @@
 
 (defn start-server [f]
   ;; app start code here
+  (server/start-server)
   (f)
   )
 
