@@ -5,6 +5,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2311"]
                  [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
+                 [com.stuartsierra/component "0.2.2"]
                  [om "0.7.1"]
                  [prismatic/dommy "1.0.0"]
                  [http-kit "2.1.16"]

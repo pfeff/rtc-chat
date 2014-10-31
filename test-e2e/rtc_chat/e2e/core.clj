@@ -2,15 +2,19 @@
   (:require [clojure.test :refer :all]
             [clj-webdriver.taxi :as t]
             [rtc-chat.server :as server]
+            [rtc-chat.core :as c]
             )
   )
+
+(def app (atom nil))
 
 (defn base-url []
   "http://localhost:8080/")
 
 (defn start-server [f]
   ;; app start code here
-  (server/start-server)
+  (let [app-component (c/start-app)]
+    (reset! app app-component))
   (f)
   )
 
@@ -29,11 +33,16 @@
   (f)
   (t/quit))
 
-(use-fixtures :once start-server start-browser-fixture quit-browser-fixture)
+(defn stop-server
+  [f]
+  (f)
+  (c/stop-app @app))
+
+(use-fixtures :once start-server start-browser-fixture quit-browser-fixture stop-server)
 (use-fixtures :each reset-browser-fixture)
 
 (deftest test-browser-configured
   (is (= (class t/*driver*) clj_webdriver.driver.Driver))
   (is (= (t/current-url) (base-url)))
-  (is (= (re-find #"(?i)html>" (t/page-source)))))
+  (is (= (re-find #"Hello world" (t/page-source)))))
 
