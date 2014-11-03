@@ -43,6 +43,9 @@
 
 (deftest test-browser-configured
   (is (= (class t/*driver*) clj_webdriver.driver.Driver))
-  (is (= (t/current-url) (base-url)))
-  (is (= (re-find #"Hello world" (t/page-source)))))
+  (is (= (t/current-url) (base-url))))
+
+(deftest test-app-container
+  (is (t/find-element {:css "div#app"}))
+  (is (t/find-element {:css "video"})))
 
