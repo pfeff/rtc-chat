@@ -13,8 +13,11 @@
                  [enlive "1.1.5"]
                  ]
 
+  :node-dependencies [[slimerjs "0.9.2"]]
+
   :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]
-            [com.cemerick/clojurescript.test "0.2.3"] ]
+            [com.cemerick/clojurescript.test "0.2.3"]
+            [lein-npm "0.4.0"]]
 
   :source-paths ["src"]
   :test-paths ["test" "test-cljs" "test-e2e"]
@@ -27,7 +30,7 @@
                 :output-dir "out"
                 :optimizations :whitespace
                 :source-map "rtc_chat.js.map"}}]
-    :test-commands {"unit-tests" ["phantomjs" :runner
+    :test-commands {"unit-tests" ["node_modules/slimerjs/bin/slimerjs" :runner
                                   "this.literal_js_eval=true"
                                   "rtc_chat.js"
                                   ]}
