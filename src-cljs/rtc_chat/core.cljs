@@ -6,10 +6,10 @@
 
 (def app-state (atom {:text "Hello world!"}))
 
-(om/root
-  (fn [app owner]
-    (reify om/IRender
-      (render [_]
-        (dom/h1 nil (:text app)))))
-  app-state
-  {:target (. js/document (getElementById "app"))})
+;(om/root
+;  (fn [app owner]
+;    (reify om/IRender
+;      (render [_]
+;        (dom/h1 nil (:text app)))))
+;  app-state
+;  {:target (. js/document (getElementById "app"))})

@@ -2,6 +2,8 @@
   (:require [cemerick.cljs.test :as t]
             [dommy.core :as dommy]
             [dommy.core :refer-macros [sel sel1]]
+            [om.core :as om :include-macros true]
+            [rtc-chat.core :as core]
             )
   (:require-macros [cemerick.cljs.test :refer (is deftest)]))
 
@@ -28,4 +30,12 @@
 
 (deftest test-container
   (let [c (container! "container-1")]
-    (is (sel1 :#container-1))))
+    (is (sel1 :#container-1))
+    (is (container!))
+    (is nil)
+    ))
+
+;(deftest video-element
+;  (let [c (container!)]
+;    (om/root core/video {} {:target c})
+;    (is (sel1 :video))))
