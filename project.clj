@@ -32,6 +32,7 @@
                 :source-map "rtc_chat.js.map"}}
              {:id "test"
               :source-paths ["src-cljs" "test-cljs"]
+              :notify-command ["node_modules/slimerjs/bin/slimerjs" :cljs.test/runner "resources/private/js/unit-test.js"]
               :compiler {:pretty-print true
                          :output-dir "resources/private/js"
                          :output-to "resources/private/js/unit-test.js"
