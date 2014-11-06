@@ -23,17 +23,24 @@
   :test-paths ["test" "test-cljs" "test-e2e"]
 
   :cljsbuild { 
-    :builds [{:id "rtc-chat"
-              :source-paths ["src-cljs" "test-cljs"]
+    :builds [{:id "dev"
+              :source-paths ["src-cljs"]
               :compiler {
                 :output-to "rtc_chat.js"
                 :output-dir "out"
-                :optimizations :whitespace
-                :source-map "rtc_chat.js.map"}}]
+                :optimizations :none
+                :source-map "rtc_chat.js.map"}}
+             {:id "test"
+              :source-paths ["src-cljs" "test-cljs"]
+              :compiler {:pretty-print true
+                         :output-dir "resources/private/js"
+                         :output-to "resources/private/js/unit-test.js"
+                         :preamble ["react/react.js"]
+                         :externs ["react/externs/react.js"]
+                         :optimizations :whitespace } } ]
     :test-commands {"unit-tests" ["node_modules/slimerjs/bin/slimerjs" :runner
                                   "this.literal_js_eval=true"
-                                  "rtc_chat.js"
-                                  ]}
+                                  "resources/private/js/unit-test.js" ]}
     }
   :profiles {:dev {:dependencies [[clj-webdriver "0.6.1"]
                                   [com.cemerick/clojurescript.test "0.3.1"]
