@@ -12,3 +12,5 @@ pom.xml
 .repl
 rtc_chat.js
 *.map
+node_modules
+resources/private
