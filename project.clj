@@ -13,8 +13,11 @@
                  [enlive "1.1.5"]
                  ]
 
+  :node-dependencies [[slimerjs "0.9.2"]]
+
   :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]
-            [com.cemerick/clojurescript.test "0.2.3"] ]
+            [com.cemerick/clojurescript.test "0.2.3"]
+            [lein-npm "0.4.0"]]
 
   :source-paths ["src"]
   :test-paths ["test" "test-cljs" "test-e2e"]
@@ -29,13 +32,14 @@
                 :source-map "rtc_chat.js.map"}}
              {:id "test"
               :source-paths ["src-cljs" "test-cljs"]
+              :notify-command ["node_modules/slimerjs/bin/slimerjs" :cljs.test/runner "resources/private/js/unit-test.js"]
               :compiler {:pretty-print true
                          :output-dir "resources/private/js"
                          :output-to "resources/private/js/unit-test.js"
                          :preamble ["react/react.js"]
                          :externs ["react/externs/react.js"]
                          :optimizations :whitespace } } ]
-    :test-commands {"unit-tests" ["slimerjs" :runner
+    :test-commands {"unit-tests" ["node_modules/slimerjs/bin/slimerjs" :runner
                                   "this.literal_js_eval=true"
                                   "resources/private/js/unit-test.js" ]}
     }
