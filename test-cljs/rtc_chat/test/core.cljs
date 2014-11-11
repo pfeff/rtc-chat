@@ -7,6 +7,8 @@
             )
   (:require-macros [cemerick.cljs.test :refer (is deftest)]))
 
+(enable-console-print!)
+
 (defn new-id 
   ([]
    (str "container-" (gensym)))
@@ -32,10 +34,9 @@
   (let [c (container! "container-1")]
     (is (sel1 :#container-1))
     (is (container!))
-    (is nil)
     ))
 
-;(deftest video-element
-;  (let [c (container!)]
-;    (om/root core/video {} {:target c})
-;    (is (sel1 :video))))
+(deftest video-element
+  (let [c (container!)]
+    (om/root core/video {} {:target c})
+    (is (sel1 :video))))
