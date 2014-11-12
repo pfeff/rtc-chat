@@ -7,8 +7,6 @@
             )
   (:require-macros [cemerick.cljs.test :refer (is deftest)]))
 
-(enable-console-print!)
-
 (defn new-id 
   ([]
    (str "container-" (gensym)))

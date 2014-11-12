@@ -13,3 +13,9 @@
 ;        (dom/h1 nil (:text app)))))
 ;  app-state
 ;  {:target (. js/document (getElementById "app"))})
+
+(defn video [data owner]
+  (reify
+    om/IRender
+    (render [this]
+      (dom/video nil nil))))
