@@ -1,0 +1,11 @@
+{:data {:read-messages {}
+        :compose-message {}
+        }
+ :ui {:message-feed {:type :ul
+                     :output :read-messages
+                     }
+      :editor {:type :textarea
+               :input :compose-message
+               }
+      }
+ }
